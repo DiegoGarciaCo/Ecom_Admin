@@ -1,0 +1,36 @@
+.skeletonContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.skeleton {
+  background-color: #4b5563; /* Tailwind's gray-600, a muted dark gray */
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -150%; /* Start further off-screen for a smoother sweep */
+  width: 150%; /* Wider gradient for a more gradual effect */
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    /* Softer highlight */ rgba(255, 255, 255, 0) 100%
+  );
+  animation: shimmer 1s infinite; /* Slower animation for elegance */
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
